@@ -2,6 +2,7 @@ define(['./template.js', './clientStorage.js'], function(template, clientStorage
   var apiUrlPath = 'https://bstavroulakis.com/pluralsight/courses/progressive-web-apps/service/';
   var apiUrlLatest = apiUrlPath + 'latest-deals.php';
   var apiUrlCar = apiUrlPath + 'car.php?carId=';
+
   function loadMoreRequest() {
     fetchPromise()
     .then(function(status){
@@ -33,7 +34,9 @@ define(['./template.js', './clientStorage.js'], function(template, clientStorage
   }
 
   function loadMore() {
+    console.log('getting cars');
     clientStorage.getCars().then(function(cars) {
+      console.log('Got Cars!');
       template.appendCars(cars);
     })
   }
